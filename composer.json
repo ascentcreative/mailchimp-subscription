@@ -1,0 +1,27 @@
+{
+  "name": "ascentcreative/mailchimp-subscription",
+  "description": "Provides reusable components for handling subcriptions through the Mailchimp Marketing API",
+  "type": "library",
+  "authors": [
+    {
+      "name": "Ascent Creative",
+      "email": "info@ascent-creative.co.uk"
+    }
+  ],
+  "require": {
+    "doctrine/dbal": "^3.0",
+    "mailchimp/marketing": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "AscentCreative\\MailchimpSubscription\\": "src"
+    }
+  },
+  "extra": {
+    "laravel": {
+        "providers": [
+            "AscentCreative\\MailchimpSubscription\\MailchimpSubscriptionServiceProvider"
+        ]
+    }
+}
+}
