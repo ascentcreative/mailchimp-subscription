@@ -11,6 +11,9 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Schema;
 
 
+use AscentCreative\MailchimpSubscription\Providers\EventServiceProvider;
+
+
 class MailchimpSubscriptionServiceProvider extends ServiceProvider
 {
 
@@ -20,6 +23,8 @@ class MailchimpSubscriptionServiceProvider extends ServiceProvider
         $this->mergeConfigFrom(
             __DIR__.'/../config/mailchimp-subscription.php', 'mailchimp-subscription'
         );
+
+        $this->app->register(EventServiceProvider::class);
 
     }
 
@@ -39,6 +44,8 @@ class MailchimpSubscriptionServiceProvider extends ServiceProvider
 
     // register the components
     public function bootComponents() {
+
+        Blade::component('mailchimp-subscription-status', 'AscentCreative\MailchimpSubscription\Components\SubscriptionStatus');
       
     }
 
@@ -46,7 +53,7 @@ class MailchimpSubscriptionServiceProvider extends ServiceProvider
     public function bootPublishes() {
 
       $this->publishes([
-        __DIR__.'/Assets' => public_path('vendor/ascentcreative/mailchimp-subscription'),
+        __DIR__.'/Assets' => public_path('vendor/ascent/mailchimp-subscription'),
     
       ], 'public');
 
