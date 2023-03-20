@@ -29,7 +29,10 @@ class MailchimpSubscriptionServiceProvider extends ServiceProvider
     }
 
     public function boot() {
+
         $this->bootComponents();
+
+        $this->bootPublishes();
 
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'mailchimp-subscription');
 
