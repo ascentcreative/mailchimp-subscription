@@ -56,12 +56,12 @@ class MailchimpSubscriptionServiceProvider extends ServiceProvider
     public function bootPublishes() {
 
       $this->publishes([
-        __DIR__.'/Assets' => public_path('vendor/ascent/mailchimp-subscription'),
+        __DIR__.'/../assets' => public_path('vendor/ascent/mailchimp-subscription'),
     
       ], 'public');
 
       $this->publishes([
-        __DIR__.'/config/mailchimp-subscription.php' => config_path('mailchimp-subscription.php'),
+        __DIR__.'/../config/mailchimp-subscription.php' => config_path('mailchimp-subscription.php'),
       ]);
 
     }
