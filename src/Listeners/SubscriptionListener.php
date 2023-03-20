@@ -21,9 +21,20 @@ class SubscriptionListener implements ShouldQueue
 
     public function shouldQueue($event):bool {
         // dump($event);
-        // return true;
+        return true;
         return $event->listenerShouldQueue == 1;
+
     }
+
+    public function viaConnection($event):string {
+        // dd($event);
+        if($event->listenerShouldQueue == 1) {
+            return 'database';
+        } else {
+            return 'sync';
+        }
+    }
+
 
     private function sendUpdate($email, $first, $last, $status, $status_new=null, $email_new=null) {
 
@@ -95,6 +106,7 @@ class SubscriptionListener implements ShouldQueue
      */
     public function handleSubscribe($event)
     {
+        // dd('sub');
         //
         // dump('handling subscribe');
         $this->sendUpdate(
@@ -109,7 +121,7 @@ class SubscriptionListener implements ShouldQueue
 
     public function handleUnsubscribe($event)
     {
-
+        // dd('unsub');
         $this->sendUpdate(
             email: $event->user->email,
             first: $event->user->first_name,

@@ -67,8 +67,14 @@ class SubscriptionController extends Controller
 
     public function unsubscribe() {
 
-        UnsubscribeRequested::dispatch(auth()->user(), false);
-
+        try {
+         UnsubscribeRequested::dispatch(auth()->user(), false);
+        } catch (APIException $e) {
+            return response()->json([
+                'message' => $e->getMessage(),
+            ], 400);
+        }
+    
     }
 
     public function resend() {

@@ -36,28 +36,16 @@ class EventServiceProvider extends ServiceProvider
             EmailSignupRequested::class,
             [SubscriptionListener::class, 'handleSubscribe']
         );
-        Event::listen(
-            EmailSignupRequested::class,
-            [SyncSubscriptionListener::class, 'handleSubscribe']
-        );
-
+       
         Event::listen(
             UnsubscribeRequested::class,
             [SubscriptionListener::class, 'handleUnsubscribe']
         );
-        Event::listen(
-            UnsubscribeRequested::class,
-            [SyncSubscriptionListener::class, 'handleUnsubscribe']
-        );
-
+       
         Event::listen(
             ResendConfirmationRequested::class,
             [SubscriptionListener::class, 'handleReconfirm']
         );
-        Event::listen(
-            ResendConfirmationRequested::class,
-            [SyncSubscriptionListener::class, 'handleReconfirm']
-        );
-        
+     
     }
 }
