@@ -26,14 +26,14 @@ class SubscriptionListener implements ShouldQueue
 
     }
 
-    public function viaConnection($event):string {
-        // dd($event);
-        if($event->listenerShouldQueue == 1) {
-            return 'database';
-        } else {
-            return 'sync';
-        }
-    }
+    // public function viaConnection($event):string {
+    //     // dd($event);
+    //     if($event->listenerShouldQueue == 1) {
+    //         return 'database';
+    //     } else {
+    //         return 'sync';
+    //     }
+    // }
 
 
     private function sendUpdate($email, $first, $last, $status, $status_new=null, $email_new=null) {

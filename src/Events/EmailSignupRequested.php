@@ -10,6 +10,8 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
+use AscentCreative\MailchimpSubscription\Contracts\Subscribable;
+
 use App\Models\User;
 
 class EmailSignupRequested
@@ -24,8 +26,9 @@ class EmailSignupRequested
      *
      * @return void
      */
-    public function __construct(User $user, $listenerShouldQueue=true)
+    public function __construct(Subscribable $user, $listenerShouldQueue=true)
     {
+
         //
         // dump('here');
         $this->user = $user;
