@@ -8,5 +8,5 @@
 </div>
 
 @push('scripts')
-    @script('/vendor/ascent/mailchimp-subscription/ascent-mailchimpsubscription-status.js')
+    @scripttag('/vendor/ascent/mailchimp-subscription/ascent-mailchimpsubscription-status.js')
 @endpush
